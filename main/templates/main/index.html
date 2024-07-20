@@ -13,25 +13,25 @@
 				<form class="booking-form row" role="form" action="{% url "main:index" %}" method="get">
 					
 					<div class="col-lg-6 col-12 address-field-with-label main-part">
-						<label for="id_city" class="form-label">Type city</label>
+						<label for="cities" class="form-label">Type city</label>
 
 						<input type="text" name="city"
 						id="id_city" class="form-control" required>
-						
+						<div class="col-lg-6 col-12">
+							<p> Forecast for now: </p>
+							{% if city %}
+							<p>City - {{city}}</p>
+							<p>Temperature {{temp}} °c </p>
+							<p>Humidity {{humidity}}% </p>
+							<p>UV index - {{uv_index}} </p>
+							<p>Wind speed {{wind_speed}}m/s </p>
+							{% endif %}
+						</div class="col-lg-6 col-12">
 					</div class="col-lg-6 col-12">
 
-					<div class="col-lg-6 col-12">
-						<p> Forecast for now: </p>
-						{% if city %}
-						<p>City - {{city}}</p>
-						<p>Temperature {{temp}} °c </p>
-						<p>Humidity {{humidity}}% </p>
-						<p>UV index - {{uv_index}} </p>
-						<p>Wind speed {{wind_speed}}m/s </p>
-						{% endif %}
-					</div class="col-lg-6 col-12">
+					
 
-					<div class="col-lg-4 col-12">
+					<div class="btn-block">
 						<button type="submit" class="form-control">Confirm</button>
 					</div>
 				</form>
