@@ -1,0 +1,74 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% block title %}
+        
+        {% endblock  %}
+
+        <!-- CSS файлы -->    
+        <link rel="preconnect" href="{% static "https://fonts.googleapis.com" %}">
+        
+        <link rel="preconnect" href="{% static "https://fonts.gstatic.com" %}" crossorigin>
+        
+                           
+        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+        <link href="{% static "css/tooplate-crispy-kitchen.css" %}" rel="stylesheet">
+</head>
+    <body>
+        {% block content %}
+        
+        {% endblock  %}
+
+
+        <script src="{% static "js/jquery.min.js" %}"></script>
+    	<script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+
+		<!-- Скрипт для автокомплита -->
+		<script type="text/javascript">
+			!function (e, t, c) {
+			e.swiftcomplete = e.swiftcomplete || {};
+			var s = t.createElement("script");
+			s.async = !0, s.src = c;
+			var r = t.getElementsByTagName("script")[0];
+			r.parentNode.insertBefore(s, r)
+			}(window, document, "https://script.swiftcomplete.com/js/swiftcomplete.js");
+		</script>
+
+		<script type="text/javascript">
+			/*#########################################
+			Insert your API key here to run the demo:
+			#########################################*/
+			var SWIFTCOMPLETE_API_KEY = "7f10864c-d8b2-452e-ad24-124972bbd18e";
+			var SWIFTCOMPLETE_SEARCH_FIELD_ID = "id_city";
+		
+			function initialiseSwiftcomplete() {
+				swiftcomplete.runWhenReady(function () {
+					
+					swiftcomplete.controls["Search field"] = new swiftcomplete.PlaceAutoComplete({
+						field: document.getElementById(SWIFTCOMPLETE_SEARCH_FIELD_ID),
+						key: SWIFTCOMPLETE_API_KEY,
+						searchFor: ""
+					});
+		
+					
+					swiftcomplete.controls["Search field"].setCountries('');
+		
+					
+					document.getElementById(SWIFTCOMPLETE_SEARCH_FIELD_ID).addEventListener('swiftcomplete:place:selected', function (e) {
+						
+					}, false);
+				});
+			}
+		
+			window.addEventListener("load", initialiseSwiftcomplete, false);
+		</script>        
+    </body>
